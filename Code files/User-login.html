@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>www.bookswap.com</title>
+    <style>
+      body {
+        background: linear-gradient(to right, #141e30, #243b55);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        text-align: center;
+        color: #fff;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="tel"] {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        outline: none;
+      }
+      input::placeholder {
+        color: #ddd;
+      }
+
+      input[type="submit"],
+      button {
+        background: #ff6b6b;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+        width: 100%;
+      }
+
+      input[type="submit"]:hover,
+      button:hover {
+        background: #ff4757;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="registration-container" class="container">
+      <h2>REGISTER NOW</h2>
+      <form id="registration-form">
+        <input type="text" id="reg-name" placeholder="Name" required /><br />
+        <input type="email" id="reg-email" placeholder="Email" required /><br />
+        <input type="tel" id="reg-phone" placeholder="Phone Number" required /><br />
+        <input type="text" id="reg-username" placeholder="Username" required /><br />
+        <input type="password" id="reg-password" placeholder="Password" required /><br />
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+
+    <div id="login-container" class="container hidden">
+      <h2>LOGIN NOW</h2>
+      <form id="login-form">
+        <input type="text" id="login-username" placeholder="Username" required /><br />
+        <input type="password" id="login-password" placeholder="Password" required /><br />
+        <input type="submit" value="Login" />
+      </form>
+      <button id="go-to-register">Register</button>
+    </div>
+
+    <script>
+      const registrationContainer = document.getElementById("registration-container");
+      const loginContainer = document.getElementById("login-container");
+      const registrationForm = document.getElementById("registration-form");
+      const loginForm = document.getElementById("login-form");
+      const goToRegisterButton = document.getElementById("go-to-register");
+
+      registrationForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = document.getElementById("reg-username").value;
+        const password = document.getElementById("reg-password").value;
+
+        localStorage.setItem("registeredUser", JSON.stringify({ username, password }));
+        alert("Registration successful! Please login.");
+        registrationContainer.classList.add("hidden");
+        loginContainer.classList.remove("hidden");
+      });
+
+      loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = document.getElementById("login-username").value;
+        const password = document.getElementById("login-password").value;
+        const registeredUser = JSON.parse(localStorage.getItem("registeredUser"));
+
+        if (registeredUser && registeredUser.username === username && registeredUser.password === password) {
+          alert("Login successful!");
+          window.location.href = "loading-page.html";
+        } else {
+          alert("Invalid credentials. Try again.");
+        }
+      });
+
+      goToRegisterButton.addEventListener("click", function () {
+        loginContainer.classList.add("hidden");
+        registrationContainer.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>

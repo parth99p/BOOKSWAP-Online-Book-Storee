@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookSwap | Home</title>
+    <link rel="stylesheet" href="Front-page.css">
+    <style>
+        h1{
+            color: whitesmoke;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 60px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: -200px;
+            background-color: rgb(82, 77, 77);
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            text-align: left;
+        }
+        .sidebar a:hover {
+            background: #e68900;
+        }
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #e69318;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu-btn:hover {
+            background: #e68900;
+        }
+        main {
+            margin-left: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar" id="sidebar">
+        <a href="www.bing.com">Home</a>
+        <a href="www.bing.com">About</a>
+        <a href="www.bing.com">Services</a>
+        <a href="www.bing.com">Contact</a>
+    </div>
+    
+    <main>
+        <section id="hero">
+            <h1>WELCOME TO YOUR OWN DESTINATION</h1>
+            <h1>BOOKSWAP 📚</h1>
+        </section>
+        <section id="features">
+            <div class="feature">
+                <h2>EASY TO BUY</h2>
+                <img src="Book1.jpeg" height="200px" width="300px" />
+                <p>"I find television very educational. Every time someone turns it on, I go in the other room and read a book." - Groucho Marx</p>
+            </div>
+            <div class="feature">
+                <h2>EASY TO SELL</h2>
+                <img src="Book2.jpeg" height="200px" width="300px" />
+                <p>"Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers." - Charles William Eliot</p>
+            </div>
+            <div class="feature">
+                <h2>EASY TO EARN</h2>
+                <img src="Book3.jpeg" height="200px" width="300px" />
+                <p>"The more that you read, the more things you will know. The more that you learn, the more places you'll go." - Dr. Seuss</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <button type="button" onclick="location.href='User-login.html'">GET STARTED</button>
+    </footer>
+    <p> For Buyers:
+     Book Listings: Provide a user-friendly search and browse interface with detailed book listings.
+     Search: Include filters for genre, author, condition, price range, and more.
+     Book Descriptions: Detailed book descriptions, including author information, publication date, condition, and price.
+     Alerts: set up alerts for buying and selling process
+    </p>
+     
+     <p> For Sellers:
+     Book Listing Process: Easy-to-follow steps for listing books, including ISBN input for automatic book details retrieval.
+     Seller Profiles: Allow sellers to create profiles with contact information, address, and reviews.
+     Payment Methods: Specify how sellers will receive payments and any transaction fees.
+     Communication: Messaging or chat functionality for direct communication with buyers.
+     Seller Support: Provide assistance and resources for sellers on listing optimization, pricing, and best practices.
+        
+    </p>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-200px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-200px";
+            }
+        }
+    </script>
+</body>
+</html>
