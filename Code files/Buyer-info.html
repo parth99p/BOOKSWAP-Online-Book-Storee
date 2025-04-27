@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>www.bookswap.com</title>
+    <meta charset="UTF-8" />
+    <title>BookSwap - Fill Your Details</title>
     <style>
-      /* Basic styling */
-      body {
-        font-family: Arial, sans-serif;
+      /* Reset basic styling */
+      * {
         margin: 0;
         padding: 0;
-        background-color: rgb(254, 254, 253);
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #a8edea, #fed6e3);
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-    background-size: cover;  /* Ensures the image covers the entire element */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
       }
 
       .container {
-        width: 400px;
-        background-color: #60dae5;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-        margin-right: 20px;
-        padding-right: 50px;
+        background-color: white;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        width: 360px;
       }
 
       .container h1 {
         text-align: center;
+        margin-bottom: 25px;
+        font-size: 28px;
         color: #333;
-        margin-right: 20px;
       }
 
-      /* Form styling */
-      label {
+      form label {
         display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
       }
 
-      input,
-      select {
+      form input,
+      form select {
         width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
+        padding: 12px 15px;
+        margin-bottom: 20px;
         border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 20px;
-        margin-left: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: 0.3s;
       }
 
-      select {
-        height: 40px;
+      form input:focus,
+      form select:focus {
+        border-color: #7a8ae7;
+        outline: none;
       }
 
-      input[type="checkbox"] {
-        margin-right: 5px;
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .checkbox-container input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+        transform: scale(1.2);
+      }
+
+      .checkbox-container label {
+        margin: 0;
+        font-size: 14px;
       }
 
       button {
         width: 100%;
-        background-color: #7a8ae7;
-        color: #111;
-        padding: 10px;
+        padding: 14px;
+        background: linear-gradient(135deg, #7a8ae7, #60dae5);
         border: none;
-        border-radius: 4px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
         cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
       }
 
       button:hover {
-        background-color: #d4ac0d; /* Darker yellow on hover */
+        background: linear-gradient(135deg, #d4ac0d, #f9d423);
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        transform: scale(0.98);
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Fill your details</h1>
+      <h1>Fill Your Details</h1>
       <form id="myForm" action="redirect_page.html" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
@@ -91,8 +115,10 @@
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone" required />
 
-        <input type="checkbox" id="correct" name="correct" required />
-        <label for="correct">All information is correct</label>
+        <div class="checkbox-container">
+          <input type="checkbox" id="correct" name="correct" required />
+          <label for="correct">All information is correct</label>
+        </div>
 
         <button type="button" id="submitBtn">Submit</button>
 
@@ -110,7 +136,7 @@
                 window.location.href = "Buyer-order.html";
               } else {
                 alert(
-                  "Please fill in all the required fields, select an option, and confirm that all information is correct."
+                  "Please fill in all the required fields and confirm that the information is correct."
                 );
               }
             });

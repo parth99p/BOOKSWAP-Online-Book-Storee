@@ -5,31 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="loader.css" />
     <title>www.bookswap.com</title>
-  </head>
-  <body>
     <style>
-      body{
-   background-color: rgb(252, 252, 249);
-}
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #040d1d 0%, #98402a 100%);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .preloader {
+        display: none; /* Assuming loader.js handles it */
+      }
+
+      .product {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 50px 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .product h1 {
+        color: #111;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .product h2 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
+
+      button {
+        background: linear-gradient(135deg, #7a8ae7, #60dae5);
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #f9d423, #ff4e50);
+        transform: scale(1.05);
+      }
+
+      .content {
+        display: none;
+      }
     </style>
+  </head>
+
+  <body>
     <div class="preloader">
       <div class="loader"></div>
     </div>
-    <div class="product">
-      <h1>Succesfully logged in !</h1>
 
-      <h2>What You Want To do ?</h2>
+    <div class="product">
+      <h1>✅ Successfully Logged In!</h1>
+      <h2>What would you like to do?</h2>
+
       <button type="button" onclick="location.href='Books-buying.html'">
         BUY BOOKS
       </button>
       <button type="button" onclick="location.href='upload1.html'">
         SELL BOOKS
       </button>
-
-      <script src="portal.js"></script>
     </div>
+
     <div class="content"></div>
+
+    <script src="portal.js"></script>
     <script src="loader.js"></script>
   </body>
 </html>
-
